@@ -17,13 +17,9 @@ spec:
         - name: spring
           image: justelyes44.azurecr.io/spring:latest
           imagePullPolicy: Always
-
-
 ---
 apiVersion: v1
 kind: Service
-imagePullSecrets:
-  - name: acr-credentials
 metadata:
   labels:
     app: spring
@@ -37,3 +33,5 @@ spec:
   type: LoadBalancer
   selector:
     app: spring
+  imagePullSecrets:
+    - name: acr-credentials
