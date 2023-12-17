@@ -19,6 +19,8 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8089
+          imagePullSecrets:
+            - name: acr-credentials
 
 ---
 apiVersion: v1
