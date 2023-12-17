@@ -17,12 +17,13 @@ spec:
         - name: spring
           image: justelyes44.azurecr.io/spring:latest
           imagePullPolicy: Always
-      imagePullSecrets:
-        - name: acr-credentials
+
 
 ---
 apiVersion: v1
 kind: Service
+imagePullSecrets:
+  - name: acr-credentials
 metadata:
   labels:
     app: spring
