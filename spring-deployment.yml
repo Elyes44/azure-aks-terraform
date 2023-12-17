@@ -16,6 +16,7 @@ spec:
       containers:
         - name: spring
           image: justelyes44.azurecr.io/spring:9
+          imagePullPolicy: Always
           ports:
             - containerPort: 8089
 
