@@ -1,4 +1,4 @@
-# spring-deployment-and-service.yaml
+# spring.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -17,10 +17,8 @@ spec:
         - name: spring
           image: justelyes44.azurecr.io/spring:latest
           imagePullPolicy: Always
-          ports:
-            - containerPort: 8089
-          imagePullSecrets:
-            - name: acr-credentials
+      imagePullSecrets:
+        - name: acr-credentials
 
 ---
 apiVersion: v1
