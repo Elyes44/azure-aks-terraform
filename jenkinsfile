@@ -9,7 +9,7 @@ pipeline {
         stage("Clone code from GitHub") {
             steps {
                 script {
-                    git branch: 'Elyes', credentialsId: 'Git_cred', url: 'https://github.com/Elyes44/achat_deploy.git'
+                    git branch: 'main', url: 'https://github.com/Elyes44/azure-aks-terraform.git'
                 }
             }
         }
