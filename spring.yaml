@@ -33,5 +33,11 @@ spec:
   type: LoadBalancer
   selector:
     app: spring
-  imagePullSecrets:
-    - name: acr-credentials
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: acr-credentials
+type: kubernetes.io/dockerconfigjson
+data:
+  .dockerconfigjson: [base64-encoded-docker-config-json]
