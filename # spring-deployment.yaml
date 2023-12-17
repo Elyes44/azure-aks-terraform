@@ -1,0 +1,37 @@
+# spring-deployment-and-service.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring
+  template:
+    metadata:
+      labels:
+        app: spring
+    spec:
+      containers:
+        - name: spring
+          image: justelyes44.azurecr.io/spring:9
+          ports:
+            - containerPort: 8089
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: spring
+  name: springboot-app
+spec:
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 8089
+  type: LoadBalancer
+  selector:
+    app: spring
